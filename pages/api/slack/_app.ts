@@ -15,12 +15,13 @@ const app = new App(appRunner.appOptions());
 
 app.event("app_mention", async ({ say }) => {
   console.log("app_mention event received");
-  debugger; // Pause execution here
+  // debugger; // Pause execution here
   await say("yes");
   console.log("Message sent");
 });
 
 const sendSlackMessage = async () => {
+  console.log("running");
   try {
     const data = await sendToSlack();
     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
@@ -36,8 +37,6 @@ const sendSlackMessage = async () => {
     console.error("Error sending data to Slack:", error);
   }
 };
-
-sendSlackMessage();
 
 cron.schedule("* * * * *", sendSlackMessage);
 
