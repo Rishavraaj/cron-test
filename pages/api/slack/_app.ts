@@ -1,17 +1,17 @@
-// import { App, LogLevel } from "@slack/bolt";
-// import { WebClient } from "@slack/web-api";
-// import { AppRunner } from "@seratch_/bolt-http-runner";
-// import sendToSlack from "@/utils/sendToslack";
-// import { formatData } from "@/utils/TaskNotificationFormatter";
+import { App, LogLevel } from "@slack/bolt";
+import { WebClient } from "@slack/web-api";
+import { AppRunner } from "@seratch_/bolt-http-runner";
+import sendToSlack from "@/utils/sendToslack";
+import { formatData } from "@/utils/TaskNotificationFormatter";
 import cron from "node-cron";
 
-// export const appRunner = new AppRunner({
-//   logLevel: LogLevel.DEBUG,
-//   token: process.env.SLACK_BOT_TOKEN,
-//   signingSecret: process.env.SLACK_SIGNING_SECRET as string,
-// });
+export const appRunner = new AppRunner({
+  logLevel: LogLevel.DEBUG,
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET as string,
+});
 
-// const app = new App(appRunner.appOptions());
+const app = new App(appRunner.appOptions());
 
 // app.event("app_mention", async ({ say }) => {
 //   console.log("app_mention event received");
@@ -46,4 +46,4 @@ cron.schedule("* * * * * *", test);
 
 // cron.schedule("* * * * *", sendSlackMessage);
 
-// appRunner.setup(app);
+appRunner.setup(app);
