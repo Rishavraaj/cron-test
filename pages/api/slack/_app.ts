@@ -38,6 +38,12 @@ const sendSlackMessage = async () => {
   }
 };
 
+const test = () => {
+  console.log("cron is running");
+};
+
+cron.schedule("* * * * * *", test);
+
 cron.schedule("* * * * *", sendSlackMessage);
 
 appRunner.setup(app);
