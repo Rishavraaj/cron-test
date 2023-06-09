@@ -1,0 +1,8 @@
+{
+  "conventionalCommits.scopes": [
+    "test-ci",
+    "section and task component",
+    "filter and sorting",
+    "filtering & sorting"
+  ]
+}
