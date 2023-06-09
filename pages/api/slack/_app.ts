@@ -13,18 +13,11 @@ export const appRunner = new AppRunner({
 
 const app = new App(appRunner.appOptions());
 
-const handleAppMention = async ({ say }) => {
+app.event("app_mention", async ({ say }) => {
   console.log("app_mention event received");
+  debugger; // Pause execution here
   await say("yes");
-};
-
-app.event("app_mention", async ({ event, say }) => {
-  try {
-    //@ts-ignore
-    await handleAppMention({ event, say });
-  } catch (error) {
-    console.error("Error handling app_mention event:", error);
-  }
+  console.log("Message sent");
 });
 
 const sendSlackMessage = async () => {
@@ -43,6 +36,9 @@ const sendSlackMessage = async () => {
     console.error("Error sending data to Slack:", error);
   }
 };
+
+sendSlackMessage();
+
 cron.schedule("* * * * *", sendSlackMessage);
 
 appRunner.setup(app);
