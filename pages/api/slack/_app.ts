@@ -14,8 +14,10 @@ export const appRunner = new AppRunner({
 const app = new App(appRunner.appOptions());
 
 app.event("app_mention", async ({ say }) => {
-  console.log("working");
+  console.log("app_mention event received");
+  debugger; // Pause execution here
   await say("yes");
+  console.log("Message sent");
 });
 
 const sendSlackMessage = async () => {
