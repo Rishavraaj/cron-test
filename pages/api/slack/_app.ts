@@ -38,11 +38,11 @@ const app = new App(appRunner.appOptions());
 //   }
 // };
 
-const test = () => {
-  console.log("cron is running");
-};
+// const test = () => {
+//   console.log("cron is running");
+// };
 
-cron.schedule("* * * * * *", test);
+// cron.schedule("* * * * * *", test);
 
 // cron.schedule("* * * * *", sendSlackMessage);
 
