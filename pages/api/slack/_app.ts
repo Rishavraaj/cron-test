@@ -14,6 +14,7 @@ export const appRunner = new AppRunner({
 const app = new App(appRunner.appOptions());
 
 app.event("app_mention", async ({ say }) => {
+  console.log("working");
   await say("yes");
 });
 
@@ -33,6 +34,6 @@ const sendSlackMessage = async () => {
     console.error("Error sending data to Slack:", error);
   }
 };
-cron.schedule("5 * * * *", sendSlackMessage);
+cron.schedule("* * * * *", sendSlackMessage);
 
 appRunner.setup(app);
