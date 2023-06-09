@@ -1,8 +1,8 @@
 {
     "crons":[
         {
-            "path": "/api/slack/events",
-            "schedule": "* * * * * *"
+            "path": "/api/cronjob",
+            "schedule": "0 * * * *"
         }
     ]
 }
