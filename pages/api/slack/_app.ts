@@ -22,9 +22,9 @@ const sendSlackMessage = async () => {
     const data = await sendToSlack();
     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
     const formattedMessage = formatData(data);
-
+    console.log(formattedMessage);
     await web.chat.postMessage({
-      channel: "C05BC103SM6",
+      channel: "C05BC103SM60",
       text: formattedMessage,
     });
 
@@ -33,6 +33,6 @@ const sendSlackMessage = async () => {
     console.error("Error sending data to Slack:", error);
   }
 };
-cron.schedule("0 9 * * *", sendSlackMessage);
+cron.schedule("5 * * * *", sendSlackMessage);
 
 appRunner.setup(app);
