@@ -8,6 +8,7 @@ import Async from "./Async";
 import CustomLink from "./CustomLink";
 import Link from "next/link";
 import { sortByStatus } from "@/utils/Tasks";
+import cron from "node-cron";
 
 const AllTasks = () => {
   const [taskData, setTaskData] = useState<ProjectTasks[]>([]);
@@ -109,6 +110,12 @@ const AllTasks = () => {
       setTaskStatus(status);
     }
   };
+
+  const test = () => {
+    console.log("cron is running");
+  };
+
+  cron.schedule("* * * * * *", test);
 
   return (
     <div>
