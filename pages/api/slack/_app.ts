@@ -13,11 +13,18 @@ export const appRunner = new AppRunner({
 
 const app = new App(appRunner.appOptions());
 
-app.event("app_mention", async ({ say }) => {
+const handleAppMention = async ({ say }) => {
   console.log("app_mention event received");
-  debugger; // Pause execution here
   await say("yes");
-  console.log("Message sent");
+};
+
+app.event("app_mention", async ({ event, say }) => {
+  try {
+    //@ts-ignore
+    await handleAppMention({ event, say });
+  } catch (error) {
+    console.error("Error handling app_mention event:", error);
+  }
 });
 
 const sendSlackMessage = async () => {
