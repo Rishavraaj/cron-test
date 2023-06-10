@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { appRunner } from "./_app";
+import { sendSlackMessage } from "./_app";
 
 export const config = {
   api: {
@@ -17,5 +18,6 @@ export default async function handler(
       .json({ error: "Sorry! This endpoint does not accept your requests." });
     return;
   }
+  await sendSlackMessage();
   await appRunner.handleEvents(req, res);
 }
