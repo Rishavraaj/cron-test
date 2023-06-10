@@ -29,7 +29,10 @@ export const filterTaskStories = (
   });
 };
 
-export const sortByStatus = (data: ProjectTasks[], status: string []): ProjectTasks[] => {
+export const sortByStatus = (
+  data: ProjectTasks[],
+  status: string[]
+): ProjectTasks[] => {
   return data.sort((a, b) => {
     const statusA = a.custom_fields[0]?.display_value || "";
     const statusB = b.custom_fields[0]?.display_value || "";
@@ -38,5 +41,9 @@ export const sortByStatus = (data: ProjectTasks[], status: string []): ProjectTa
     const orderB = status.indexOf(statusB);
 
     return orderA - orderB;
-  })
-}
+  });
+};
+
+export const consoleSchedule = () => {
+  console.log("running");
+};
