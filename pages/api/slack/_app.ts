@@ -13,31 +13,31 @@ export const appRunner = new AppRunner({
 
 const app = new App(appRunner.appOptions());
 
-// app.event("app_mention", async ({ say }) => {
-//   console.log("app_mention event received");
-//   // debugger; // Pause execution here
-//   await say("yes");
-//   console.log("Message sent");
-// });
+app.event("app_mention", async ({ say }) => {
+  console.log("app_mention event received");
+  // debugger; // Pause execution here
+  await say("yes");
+  console.log("Message sent");
+});
 
-// const sendSlackMessage = async () => {
-//   console.log("running");
-//   try {
-//     const data = await sendToSlack();
-//     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
-//     const formattedMessage = formatData(data);
-//     console.log(formattedMessage);
-//     await web.chat.postMessage({
-//       channel: "C05BC103SM60",
-//       text: formattedMessage,
-//     });
+const sendSlackMessage = async () => {
+  console.log("running");
+  try {
+    const data = await sendToSlack();
+    const web = new WebClient(process.env.SLACK_BOT_TOKEN);
+    const formattedMessage = formatData(data);
+    console.log(formattedMessage);
+    await web.chat.postMessage({
+      channel: "C05BC103SM60",
+      text: formattedMessage,
+    });
 
-//     console.log("Data sent to Slack");
-//   } catch (error) {
-//     console.error("Error sending data to Slack:", error);
-//   }
-// };
+    console.log("Data sent to Slack");
+  } catch (error) {
+    console.error("Error sending data to Slack:", error);
+  }
+};
 
-// cron.schedule("* * * * *", sendSlackMessage);
+sendSlackMessage();
 
 appRunner.setup(app);
