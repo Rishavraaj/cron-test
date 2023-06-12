@@ -20,22 +20,22 @@ app.event("app_mention", async ({ say }) => {
   console.log("Message sent");
 });
 
-export const sendSlackMessage = async () => {
-  console.log("running");
-  try {
-    const data = await sendToSlack();
-    const web = new WebClient(process.env.SLACK_BOT_TOKEN);
-    const formattedMessage = formatData(data);
-    console.log(formattedMessage);
-    await web.chat.postMessage({
-      channel: "C05BC103SM60L",
-      text: formattedMessage,
-    });
+// export const sendSlackMessage = async () => {
+//   console.log("running");
+//   try {
+//     const data = await sendToSlack();
+//     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
+//     const formattedMessage = formatData(data);
+//     console.log(formattedMessage);
+//     await web.chat.postMessage({
+//       channel: "C05BC103SM60L",
+//       text: formattedMessage,
+//     });
 
-    console.log("Data sent to Slack");
-  } catch (error) {
-    console.error("Error sending data to Slack:", error);
-  }
-};
+//     console.log("Data sent to Slack");
+//   } catch (error) {
+//     console.error("Error sending data to Slack:", error);
+//   }
+// };
 
 appRunner.setup(app);
