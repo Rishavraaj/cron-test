@@ -18,6 +18,6 @@ export default async function handler(
       .json({ error: "Sorry! This endpoint does not accept your requests." });
     return;
   }
-  res.json(sendSlackMessage());
+  await sendSlackMessage();
   await appRunner.handleEvents(req, res);
 }
