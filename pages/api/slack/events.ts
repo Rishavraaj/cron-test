@@ -55,6 +55,7 @@ export default async function handler(
   // }
 
   console.log("Qstash is running");
+  console.log(req.headers);
 
   await appRunner.handleEvents(req, res);
 }
