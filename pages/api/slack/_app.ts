@@ -28,14 +28,13 @@ export const sendSlackMessage = async () => {
     const formattedMessage = formatData(data);
     console.log(formattedMessage);
     await web.chat.postMessage({
-      channel: "C05BC103SM6l",
+      channel: "C05BC103SM60L",
       text: formattedMessage,
     });
 
     console.log("Data sent to Slack");
   } catch (error) {
     console.error("Error sending data to Slack:", error);
-    throw error; // Rethrow the error to be caught in the handler
   }
 };
 
