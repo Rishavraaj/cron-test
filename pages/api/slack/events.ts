@@ -54,7 +54,7 @@ export default async function handler(
   //   res.status(500).json({ error: "Error sending data to Slack" });
   // }
 
-  await console.log("Qstash is running");
+  console.log("Qstash is running");
 
   await appRunner.handleEvents(req, res);
 }
