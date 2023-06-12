@@ -21,14 +21,8 @@ export default async function handler(
       .json({ error: "Sorry! This endpoint does not accept your requests." });
     return;
   }
-  try {
-    await appRunner.handleEvents(req, res);
-    await sendSlackMessage();
-    res.status(200);
-  } catch (error) {
-    console.error("Error sending data to Slack:", error);
-    res.status(500);
-  }
+
+  await appRunner.handleEvents(req, res);
 }
 
 // export default async function handler(
