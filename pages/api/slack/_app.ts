@@ -35,6 +35,7 @@ export const sendSlackMessage = async () => {
     console.log("Data sent to Slack");
   } catch (error) {
     console.error("Error sending data to Slack:", error);
+    throw error; // Rethrow the error to be caught in the handler
   }
 };
 
