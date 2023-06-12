@@ -39,7 +39,7 @@ export default async function handler(
     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
     const formattedMessage = formatData(data);
     console.log("data fetched");
-
+    console.log(formattedMessage);
     await web.chat.postMessage({
       channel: "C05BC103SM6l",
       text: formattedMessage,
