@@ -20,7 +20,7 @@ app.event("app_mention", async ({ say }) => {
   console.log("Message sent");
 });
 
-const sendSlackMessage = async () => {
+export const sendSlackMessage = async () => {
   console.log("running");
   try {
     const data = await sendToSlack();
@@ -37,7 +37,5 @@ const sendSlackMessage = async () => {
     console.error("Error sending data to Slack:", error);
   }
 };
-
-sendSlackMessage();
 
 appRunner.setup(app);
