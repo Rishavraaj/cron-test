@@ -28,7 +28,7 @@ export const sendSlackMessage = async () => {
     const formattedMessage = formatData(data);
     console.log(formattedMessage);
     await web.chat.postMessage({
-      channel: "C05BC103SM61",
+      channel: "C05BC103SM6",
       text: formattedMessage,
     });
 
