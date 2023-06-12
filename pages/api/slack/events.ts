@@ -29,7 +29,7 @@ export default async function handler(
     const formattedMessage = formatData(data);
     console.log("data fetched");
     await web.chat.postMessage({
-      channel: "C05BC103SM60L",
+      channel: "C05BC103SM60",
       text: formattedMessage,
     });
 
