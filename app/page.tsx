@@ -1,6 +1,8 @@
 "use client";
 import CompanyDetail from "@/components/CompanyDetail";
 import CustomLink from "@/components/CustomLink";
+import { SessionProvider } from "next-auth/react";
+import LoginTest from "../components/LoginTest";
 
 export default function Home() {
   return (
@@ -15,6 +17,7 @@ export default function Home() {
         <CustomLink variant="button" href="/slack">
           Slack Notification
         </CustomLink>
+        <LoginTest />
       </div>
       <CompanyDetail />
     </main>

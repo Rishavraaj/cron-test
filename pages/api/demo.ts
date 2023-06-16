@@ -9,6 +9,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (req.method !== "POST") {
+    res
+      .status(405)
+      .json({ error: "Sorry! This endpoint does not accept your requests." });
+    return;
+  }
   try {
     const data = await sendToSlack();
     const web = new WebClient(process.env.SLACK_BOT_TOKEN);
