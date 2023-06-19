@@ -14,17 +14,8 @@ export const authOptions = {
   ],
   callbacks: {
     //@ts-ignore
-    async signIn({ user, account, profile, email, credentials }) {
-      return true;
-    },
-    //@ts-ignore
-
-    async redirect({ url, baseUrl }) {
-      return baseUrl;
-    },
-    //@ts-ignore
-
-    async session({ session, user, token }) {
+    async session({ session, token, user }) {
+      session.user.id = user.id;
       return session;
     },
   },
