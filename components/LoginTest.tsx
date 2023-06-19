@@ -1,4 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
+import { GetServerSidePropsContext } from "next";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getProviders } from "next-auth/react";
 
 export default function page() {
   const { data: session, status } = useSession();
@@ -32,24 +35,9 @@ export default function page() {
   );
 }
 
-// export async function getServerSideProps(context) {
-//   const session = await unstable_getServerSession(
-//     context.req,
-//     context.res,
-//     authOptions
-//   );
-
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/api/auth/signin",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   return {
-//     props: {
-//       session,
-//     },
-//   };
-// }
+export async function getServerSideProps() {
+  const providers = await getProviders();
+  return {
+    props: { providers },
+  };
+}
