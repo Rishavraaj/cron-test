@@ -10,16 +10,11 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      checks: ["none"],
     }),
   ],
-  callbacks: {
-    //@ts-ignore
-    async session({ session, token, user }) {
-      session.user.id = user.id;
-      return session;
-    },
-  },
-  secret: "pwejeifhecbdchdicud",
+
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
