@@ -35,9 +35,9 @@ export default function page() {
   );
 }
 
-export async function getServerSideProps() {
-  const providers = await getProviders();
-  return {
-    props: { providers },
-  };
-}
+// export async function getServerSideProps() {
+//   const providers = await getProviders();
+//   return {
+//     props: { providers },
+//   };
+// }
