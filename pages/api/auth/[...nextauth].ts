@@ -13,7 +13,6 @@ export const authOptions = {
       checks: ["none"],
     }),
   ],
-
   secret: process.env.NEXTAUTH_SECRET,
 };
 

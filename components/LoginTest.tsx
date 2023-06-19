@@ -11,19 +11,12 @@ export default function page() {
 
   const email = session?.user?.email;
 
-  const ends = email?.substring(email?.lastIndexOf("@") + 1);
-
-  console.log(ends);
-
-  if (ends === "test.com") {
-  }
-
   return (
     <div>
       {!session && (
         <>
           <h3>{session}</h3>
-          <button onClick={() => signIn()}>Sign in </button>
+          <button onClick={() => signIn("google")}>Sign in </button>
         </>
       )}
 
